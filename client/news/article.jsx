@@ -10,7 +10,7 @@ export function Article() {
   async function loadArticle() {}
 
   return (
-    <>
+    <article>
       <h2>The 5 most common mistakes as React developer</h2>
       {image && <img src={image} alt="Article visual" />}
       <ul className={"article-info"}>
@@ -58,6 +58,6 @@ export function Article() {
         voluptatibus! A alias commodi eligendi error incidunt inventore,
         mollitia officia officiis qui repellendus sunt, tempora.
       </p>
-    </>
+    </article>
   );
 }

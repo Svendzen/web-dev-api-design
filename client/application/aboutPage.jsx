@@ -20,7 +20,7 @@ export function AboutPage() {
       </p>
 
       <h2>Meet the Team</h2>
-      <ul>
+      <ul className={"team-info"}>
         <li>
           <strong>John Doe</strong>: Our lead editor, who once fixed a bug by
           simply glaring at his screen. Known for his ability to write code that

@@ -1,6 +1,7 @@
 body {
     margin : 0;
     font-family: sans-serif;
+    height: 100vh;
 }
 ul, li {
     padding: 0;
@@ -9,8 +10,10 @@ ul, li {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr; /*20% 60% 20% widths*/
+    grid-template-columns: 1fr 5fr 1fr; /*20% 60% 20% widths */
     column-gap: 30px;
+    min-height: calc(100vh - 50px); /*Adjusting based on the footer height*/
+    grid-template-rows: auto 1fr auto+2em;
 }
 
 header {
@@ -22,11 +25,16 @@ nav ul {
     overflow: hidden;
     padding: 0;
     background-color: #333;
+    margin: 0;
 }
 
 nav ul li {
     float: left;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
+
 nav ul li a {
     display: block;
     color: white;
@@ -51,44 +59,51 @@ main {
     padding: 30px;
 }
 
-main h2 {
+article h2 {
     font-size: 3.5em;
     max-width: 800px;
 }
 
-main img {
-    max-width: 100%; /* Ensure the image is responsive and fits the article */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent inline display to avoid space beneath the image */
-    margin: 20px 0; /* Add some margin above and below the image */
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
 }
 
 .article-info {
-    display: flex; /* Display list items in a row */
-    justify-content: space-around; /* Distribute space evenly around items */
-    margin: 20px 0; /* Add some margin above and below the list */
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
 }
 
 .article-info li {
-    display: flex; /* Display the <strong> and <p> elements inline */
-    flex-direction: column; /* Stack them vertically */
-    align-items: center; /* Center-align the items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #111;
 }
 
 .article-info p {
-    margin: 2px 0; /* Add a little space between the <strong> and <p> */
+    margin: 2px 0;
+    color: #222;
 }
 
-main p {
+article p {
     margin-top: 30px;
     line-height: 2em;
     color: #777;
 }
 
+.team-info li {
+    list-style-type: disc;
+}
+
 footer {
-    grid-column: span 3; /*Because there are 3 columns*/
+    grid-column: span 3; /* Because there are 3 columns */
     text-align: center;
     border-top: 1px solid #ddd;
+    height: 50px;
 }
 
 /*Responsive styles*/
