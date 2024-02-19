@@ -9,47 +9,80 @@ ul, li {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /*20% 60% 20% widths*/
+    grid-template-columns: 1fr 5fr 1fr; /*20% 60% 20% widths*/
     column-gap: 30px;
 }
 
 header {
     grid-column: span 3; /*Because there are 3 columns*/
     text-align: center;
-    border-bottom: 1px solid #ddd;
 }
 
-nav {
-    padding: 30px;
-    border-right: 1px solid #ddd;
+nav ul {
+    overflow: hidden;
+    padding: 0;
+    background-color: #333;
 }
 
-nav li {
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li.login {
+    float: right; /* For the login nav button to stay to the right*/
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+aside .left li {
     text-decoration: underline;
 }
 
-article {
+main {
     padding: 30px;
 }
 
-article h2 {
+main h2 {
     font-size: 3.5em;
     max-width: 800px;
 }
 
-article img {
-    width: 100%; /*if there are any images (its optional) */
+main img {
+    max-width: 100%; /* Ensure the image is responsive and fits the article */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline display to avoid space beneath the image */
+    margin: 20px 0; /* Add some margin above and below the image */
 }
 
-article p {
+.article-info {
+    display: flex; /* Display list items in a row */
+    justify-content: space-around; /* Distribute space evenly around items */
+    margin: 20px 0; /* Add some margin above and below the list */
+}
+
+.article-info li {
+    display: flex; /* Display the <strong> and <p> elements inline */
+    flex-direction: column; /* Stack them vertically */
+    align-items: center; /* Center-align the items */
+}
+
+.article-info p {
+    margin: 2px 0; /* Add a little space between the <strong> and <p> */
+}
+
+main p {
     margin-top: 30px;
     line-height: 2em;
     color: #777;
-}
-
-aside {
-    padding: 30px;
-    border-left: 1px solid #ddd;
 }
 
 footer {
@@ -62,32 +95,21 @@ footer {
 
 /*For when screen width goes below 1200px*/
 @media screen and (max-width: 1200px) {
-    nav {
+    aside.left {
         grid-column: span 3;
-        border-right: 0;
         border-bottom: 1px solid #ddd;
     }
-    nav li {
-        display: inline-block;
-        margin-right: 10px;
-    }
-    article {
+    main {
         grid-column: span 2;
     }
-    aside {
-        padding: 16px;
-    }
 }
+
 /*For when screen width goes below 980px*/
 @media screen and (max-width: 980px) {
-    nav, article, aside {
+    aside .left .right, main {
         grid-column: span 3;
     }
-    aside {
-        border-left: 0;
-        border-top: 1px solid #ddd;
-    }
-    article h2 {
+    main h2 {
         font-size: 2.5em;
     }
 }
