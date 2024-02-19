@@ -1,3 +1,1 @@
-export function NewsPage() {
-  return;
-}
+export function NewsPage() {}

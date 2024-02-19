@@ -1,5 +1,4 @@
 import { Header } from "./header";
-import { Article } from "../news/article";
 import { Footer } from "./footer";
 import { ApplicationRoutes } from "./applicationRoutes";
 
