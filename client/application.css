@@ -1,0 +1,93 @@
+body {
+    margin : 0;
+    font-family: sans-serif;
+}
+ul, li {
+    padding: 0;
+    list-style-type: none; /*Removing the dots*/
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /*20% 60% 20% widths*/
+    column-gap: 30px;
+}
+
+header {
+    grid-column: span 3; /*Because there are 3 columns*/
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+nav {
+    padding: 30px;
+    border-right: 1px solid #ddd;
+}
+
+nav li {
+    text-decoration: underline;
+}
+
+article {
+    padding: 30px;
+}
+
+article h2 {
+    font-size: 3.5em;
+    max-width: 800px;
+}
+
+article img {
+    width: 100%; /*if there are any images (its optional) */
+}
+
+article p {
+    margin-top: 30px;
+    line-height: 2em;
+    color: #777;
+}
+
+aside {
+    padding: 30px;
+    border-left: 1px solid #ddd;
+}
+
+footer {
+    grid-column: span 3; /*Because there are 3 columns*/
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+/*Responsive styles*/
+
+/*For when screen width goes below 1200px*/
+@media screen and (max-width: 1200px) {
+    nav {
+        grid-column: span 3;
+        border-right: 0;
+        border-bottom: 1px solid #ddd;
+    }
+    nav li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    article {
+        grid-column: span 2;
+    }
+    aside {
+        padding: 16px;
+    }
+}
+/*For when screen width goes below 980px*/
+@media screen and (max-width: 980px) {
+    nav, article, aside {
+        grid-column: span 3;
+    }
+    aside {
+        border-left: 0;
+        border-top: 1px solid #ddd;
+    }
+    article h2 {
+        font-size: 2.5em;
+    }
+}

@@ -1,5 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Application } from "./application/application";
+import "./application.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<h1>Hello Test</h1>);
+root.render(
+  <BrowserRouter>
+    <Application></Application>
+  </BrowserRouter>,
+);
