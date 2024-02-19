@@ -9,6 +9,7 @@
     "react-router-dom": "^6.22.0"
   },
   "scripts": {
-    "start": "parcel watch index.html"
+    "dev": "parcel watch index.html",
+    "build": "parcel build index.html"
   }
 }
