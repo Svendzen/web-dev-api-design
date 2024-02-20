@@ -23,4 +23,19 @@ export function NewsPage() {
   function handleArticleClick(id) {
     navigate(`/article/${id}`);
   }
+
+  return (
+    <div className="news-page">
+      <h1>Our Latest Articles</h1>
+      {articles.map((article) => (
+        <ArticlePreview
+          key={article._id}
+          id={article._id}
+          title={article.title}
+          image={article.image}
+          onClick={handleArticleClick}
+        />
+      ))}
+    </div>
+  );
 }
