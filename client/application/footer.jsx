@@ -3,7 +3,7 @@ export function Footer() {
     <footer>
       <p>Copyright 2024 The Developer Daily</p>
       <p>
-        <i>Parody - not a real news site!</i>
+        <i>Not a real news site! :-)</i>
       </p>
     </footer>
   );

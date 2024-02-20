@@ -3,6 +3,7 @@ import * as path from "path";
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import cookieParser from "cookie-parser";
+import articlesRouter from "./api/articleApi.js";
 
 dotenv.config();
 const app = express();
@@ -15,6 +16,9 @@ app.use(express.static("../client/dist")); // better performance middleware
 // MONGO DB CONNECTION
 const client = new MongoClient(process.env.MONGODB_URL);
 const db = client.db("news_db"); // the db being used
+
+// ROUTERS
+app.use("/api", articlesRouter(db));
 
 // FALLBACK MIDDLEWARE for non API GET calls
 app.use((req, res, next) => {

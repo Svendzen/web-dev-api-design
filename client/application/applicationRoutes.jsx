@@ -6,12 +6,13 @@ import { AboutPage } from "./aboutPage";
 import { ContactPage } from "./contactPage";
 import { ProfilePage } from "../profile/profilePage";
 import { GoogleCallback } from "../login/googleCallback";
+import { NewsPage } from "../news/newsPage";
 
 export function ApplicationRoutes() {
   return (
     <Routes>
-      <Route path={"*"} element={<h2>Not Found :(</h2>} />
-      <Route path={"/"} element={<Article />} />
+      <Route path={"*"} element={<h2>Not Found :-(</h2>} />
+      <Route path={"/"} element={<NewsPage />} />
       <Route path={"/joke"} element={<JokePage />} />
       <Route path={"/about"} element={<AboutPage />} />
       <Route path={"/contact"} element={<ContactPage />} />

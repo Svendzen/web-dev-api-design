@@ -1,7 +1,6 @@
 body {
     margin : 0;
     font-family: sans-serif;
-    height: 100vh;
 }
 ul, li {
     padding: 0;
@@ -19,6 +18,12 @@ ul, li {
 header {
     grid-column: span 3; /*Because there are 3 columns*/
     text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 0;
+    margin-top: 15px;
 }
 
 nav ul {
@@ -44,15 +49,12 @@ nav ul li a {
 }
 
 nav ul li.login {
-    float: right; /* For the login nav button to stay to the right*/
+    float: right; /*for the login nav button to stay to the right*/
+    padding-right: 20px;
 }
 
 nav ul li a:hover {
     background-color: #111;
-}
-
-aside .left li {
-    text-decoration: underline;
 }
 
 main {
@@ -95,8 +97,40 @@ article p {
     color: #777;
 }
 
-.team-info li {
-    list-style-type: disc;
+.article-preview {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /*change cursor to pointer on hover to show its clickable*/
+}
+
+h1, h2 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.article-preview img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /*make sure the image covers the area, cropping if necessary*/
+    margin-right: 20px;
+    border-radius: 3px;
+}
+
+.article-preview h2 {
+    font-size: 20px; /*font size for titles*/
+    margin: 0;
+    flex-grow: 1; /*let the title take up the remaining space*/
+    color: #333;
+}
+
+/* Hover effect for article previews */
+.article-preview:hover {
+    background-color: #f9f9f9;
 }
 
 footer {

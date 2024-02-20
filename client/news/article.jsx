@@ -6,6 +6,7 @@ export function Article() {
   const [timePublished, setTimePublished] = useState();
   const [category, setCategory] = useState();
   const [author, setAuthor] = useState();
+  const [content, setContent] = useState();
 
   async function loadArticle() {}
 
