@@ -7,6 +7,14 @@ ul, li {
     list-style-type: none; /*Removing the dots*/
 }
 
+h1, h2 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 20px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr; /*20% 60% 20% widths */
@@ -97,20 +105,25 @@ article p {
     color: #777;
 }
 
+/* The anonymous users see if they try to read an article*/
+.access-denied-message {
+    color: #d32f2f;
+    background-color: #ffcdd2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #f44336;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+
 .article-preview {
     border-bottom: 1px solid #e2e2e2;
     padding: 20px;
     display: flex;
     align-items: center;
     cursor: pointer; /*change cursor to pointer on hover to show its clickable*/
-}
-
-h1, h2 {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 32px;
-    font-weight: normal;
-    color: #333;
-    margin-bottom: 20px;
 }
 
 .article-preview img {

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import DOMPurify from "dompurify"; // Used to sanitize the article content to prevent XSS attacks
+import DOMPurify from "dompurify";
+import { LoginContext } from "../context/loginContext"; // Used to sanitize the article content to prevent XSS attacks
 
 export function Article() {
   const [article, setArticle] = useState(null);
+  const { user } = useContext(LoginContext);
   let { id } = useParams(); // fetches id from the url params
 
   async function loadArticle() {
@@ -30,32 +32,37 @@ export function Article() {
       {article ? (
         <>
           <h2>{article.title}</h2>
-          {article.image && <img src={article.image} alt="Article image" />}
-          <ul className={"article-info"}>
-            <li>
-              <p>
-                <strong>Published on:</strong>
-              </p>
-              <p>{article.timePublished}</p>
-            </li>
-            <li>
-              <p>
-                <strong>Article category:</strong>
-              </p>
-              <p>{article.category}</p>
-            </li>
-            <li>
-              <p>
-                <strong>Written by:</strong>
-              </p>
-              <p>{article.author}</p>
-            </li>
-          </ul>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(article.content),
-            }}
-          />
+          {user ? (
+            <>
+              {article.image && <img src={article.image} alt="Article image" />}
+              <ul className={"article-info"}>
+                <li>
+                  <p>
+                    <strong>Published on:</strong> {article.timePublished}
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Article category:</strong> {article.category}
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Written by:</strong> {article.author}
+                  </p>
+                </li>
+              </ul>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(article.content),
+                }}
+              />
+            </>
+          ) : (
+            <p className="access-denied-message">
+              You need to be signed in to view this article.
+            </p>
+          )}
         </>
       ) : (
         <p>Loading article...</p>
