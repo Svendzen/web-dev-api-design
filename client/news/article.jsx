@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import DOMPurify from "dompurify"; // Used to sanitize the article content to prevent XSS attacks
 
 export function Article() {
   const [article, setArticle] = useState(null);
@@ -50,7 +51,11 @@ export function Article() {
               <p>{article.author}</p>
             </li>
           </ul>
-          <div>{article.content}</div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(article.content),
+            }}
+          />
         </>
       ) : (
         <p>Loading article...</p>
