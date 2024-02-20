@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/loginContext";
 
 export function ProfilePage() {
-  const { user, setUser, loadUser } = useContext(LoginContext);
+  const { user, setUser, setUserType } = useContext(LoginContext);
   const navigate = useNavigate();
 
   async function handleLogout(e) {
@@ -14,7 +14,9 @@ export function ProfilePage() {
     if (!res.ok) {
       throw new Error("Error! Could not log out! " + res.statusText);
     }
-    setUser(null); // call this so the page (nav) updates correctly
+    // set these to null so the page (nav) updates correctly
+    setUserType(null);
+    setUser(null);
     navigate("/");
   }
 

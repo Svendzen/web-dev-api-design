@@ -9,6 +9,7 @@ const GOOGLE_CLIENT_ID =
 
 export function Application() {
   const [user, setUser] = useState();
+  const [userType, setUserType] = useState();
   async function loadUser() {
     try {
       const res = await fetch("/api/login");
@@ -42,7 +43,14 @@ export function Application() {
 
   return (
     <LoginContext.Provider
-      value={{ user, setUser, loadUser, client_id: GOOGLE_CLIENT_ID }}
+      value={{
+        user,
+        userType,
+        setUserType,
+        setUser,
+        loadUser,
+        client_id: GOOGLE_CLIENT_ID,
+      }}
     >
       <div className={"grid-container"}>
         <Header />

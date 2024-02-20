@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 export function Header() {
-  const { user } = useContext(LoginContext);
+  const { user, userType } = useContext(LoginContext);
   return (
     <header>
       <h1>The Developer Daily</h1>
@@ -25,6 +25,11 @@ export function Header() {
           <li>
             <Link to="/about">About</Link>
           </li>
+          {userType === "editor" ? (
+            <li>
+              <Link to={"article/new"}>Add New Article</Link>
+            </li>
+          ) : null}
           <li className="login">
             {user ? (
               <Link to={"/profile"}>{user.name}</Link>
