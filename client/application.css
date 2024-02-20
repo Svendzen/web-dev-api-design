@@ -48,9 +48,9 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li.login {
+.login {
     float: right; /*for the login nav button to stay to the right*/
-    padding-right: 20px;
+    padding-right: 15px;
 }
 
 nav ul li a:hover {
@@ -131,6 +131,23 @@ h1, h2 {
 /* Hover effect for article previews */
 .article-preview:hover {
     background-color: #f9f9f9;
+}
+
+.google-button {
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px;
+    width: auto;
+    display: inline-block; /*no stretch*/
+}
+
+.google-button a {
+    color: aliceblue;
+    text-decoration: none; /*removes underline from link*/
+}
+
+.google-button:hover {
+    background-color: darkgreen;
 }
 
 footer {

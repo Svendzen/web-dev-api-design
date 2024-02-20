@@ -4,10 +4,14 @@ import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import cookieParser from "cookie-parser";
 import articlesRouter from "./api/articleApi.js";
+import { userInfoMiddleware } from "./middleware/userInfoMiddleware.js";
+import loginRouter from "./api/loginApi.js";
 
 dotenv.config();
 const app = express();
 const PORT = 3001;
+
+const google_config = process.env.GOOGLE_OPENID_CONFIGURATION; // grab google config doc from .env
 
 app.use(express.json()); // instead of body parser
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -17,8 +21,11 @@ app.use(express.static("../client/dist")); // better performance middleware
 const client = new MongoClient(process.env.MONGODB_URL);
 const db = client.db("news_db"); // the db being used
 
+app.use(userInfoMiddleware(google_config));
+
 // ROUTERS
 app.use("/api", articlesRouter(db));
+app.use("/api", loginRouter(db));
 
 // FALLBACK MIDDLEWARE for non API GET calls
 app.use((req, res, next) => {

@@ -1,4 +1,9 @@
+import { LoginContext } from "../context/loginContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 export function Header() {
+  const { user } = useContext(LoginContext);
   return (
     <header>
       <h1>The Developer Daily</h1>
@@ -6,22 +11,26 @@ export function Header() {
       <nav>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="">Articles</a>
+            <Link to="">Articles</Link>
           </li>
           <li>
-            <a href="/joke">Joke of the Day</a>
+            <Link to="/joke">Joke of the Day</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li className="login">
-            <a href="/login">Sign in</a>
+            {user ? (
+              <Link to={"/profile"}>{user.name}</Link>
+            ) : (
+              <Link to="/login">Sign in</Link>
+            )}
           </li>
         </ul>
       </nav>

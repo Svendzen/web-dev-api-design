@@ -18,7 +18,7 @@ export function ApplicationRoutes() {
       <Route path={"/about"} element={<AboutPage />} />
       <Route path={"/contact"} element={<ContactPage />} />
       <Route path={"/login"} element={<LoginPage />} />
-      <Route path={"/login/callback"} element={<GoogleCallback />} />
+      <Route path={"/login/callback/google"} element={<GoogleCallback />} />
       <Route path={"/profile"} element={<ProfilePage />} />
     </Routes>
   );

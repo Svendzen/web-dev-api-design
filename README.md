@@ -9,3 +9,5 @@ The code have been changed so it fits my needs and vision for application.
 "Build Layouts with CSS Grid #3 - Holy Grail Layout" https://www.youtube.com/watch?v=cJvMbQq0MIQ
 
 "CSS Horizontal Navigation Bar" https://www.w3schools.com/css/css_navbar_horizontal.asp
+
+Royalty free stock photos from https://www.pexels.com/
