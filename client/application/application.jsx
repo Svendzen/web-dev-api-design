@@ -31,9 +31,8 @@ export function Application() {
       if (user && Object.keys(user).length !== 0) {
         setUser(user); // Only call setUser if user is actually loaded and not an empty object
       }
-      //console.log(user); // debug
     } catch (error) {
-      console.log(error); // debug
+      console.log(error);
     }
   }
   // load the user on render

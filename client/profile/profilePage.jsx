@@ -22,7 +22,9 @@ export function ProfilePage() {
     return (
       <>
         <h2>{user.name}'s Profile</h2>
-        <div>Username: {user.name}</div>
+        <div>Email: {user.email}</div>
+        <div>First Name: {user.given_name}</div>
+        <div>Last Name: {user.family_name}</div>
         <img src={user.picture} alt="user's picture" />
 
         <form onSubmit={handleLogout}>

@@ -9,7 +9,6 @@ export function GoogleButton() {
   const { client_id } = useContext(LoginContext);
   async function loadAuthorizationUrl() {
     const res = await fetch(DISCOVERY_URL);
-    console.log("client id: " + client_id);
     const discoveryDocument = await res.json();
     setAuthorizationUrl(
       discoveryDocument.authorization_endpoint +
@@ -21,7 +20,6 @@ export function GoogleButton() {
           redirect_uri: window.location.origin + "/login/callback/google",
         }),
     );
-    console.log("auth url: " + authorizationUrl);
   }
 
   useEffect(() => {
