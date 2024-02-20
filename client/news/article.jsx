@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser"; // parse html to react components - more safely display html elements
 
 export function Article() {
   const [article, setArticle] = useState(null);
@@ -50,7 +51,7 @@ export function Article() {
               <p>{article.author}</p>
             </li>
           </ul>
-          <p>{article.content}</p>
+          <div>{parse(article.content)}</div>
         </>
       ) : (
         <p>Loading article...</p>

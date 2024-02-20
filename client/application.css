@@ -63,11 +63,11 @@ main {
 
 article h2 {
     font-size: 3.5em;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 article img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     display: block;
     margin: 20px 0;
