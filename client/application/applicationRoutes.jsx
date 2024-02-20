@@ -13,6 +13,7 @@ export function ApplicationRoutes() {
     <Routes>
       <Route path={"*"} element={<h2>Not Found :-(</h2>} />
       <Route path={"/"} element={<NewsPage />} />
+      <Route path={"/article/:id"} element={<Article />} />
       <Route path={"/joke"} element={<JokePage />} />
       <Route path={"/about"} element={<AboutPage />} />
       <Route path={"/contact"} element={<ContactPage />} />

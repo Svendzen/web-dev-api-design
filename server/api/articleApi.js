@@ -30,7 +30,7 @@ const articlesRouter = (db) => {
   });
 
   // GET route for fetching a specific article by ID
-  router.get("article/:id", async (req, res) => {
+  router.get("/article/:id", async (req, res) => {
     try {
       const collection = db.collection("articles");
       const article = await collection.findOne({
