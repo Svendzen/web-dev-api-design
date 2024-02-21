@@ -47,6 +47,44 @@ const articlesRouter = (db) => {
     }
   });
 
+  // PUT route for updating an existing article
+  router.put("/article/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const update = { $set: req.body };
+      const collection = db.collection("articles");
+      const result = await collection.updateOne(
+        { _id: new ObjectId(id) },
+        update,
+      );
+      if (result.matchedCount === 0) {
+        return res
+          .status(404)
+          .send("The article with the given ID was not found.");
+      }
+      res.json({ message: "Article updated successfully" });
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  });
+
+  // DELETE route for deleting an article
+  router.delete("/article/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const collection = db.collection("articles");
+      const result = await collection.deleteOne({ _id: new ObjectId(id) });
+      if (result.deletedCount === 0) {
+        return res
+          .status(404)
+          .send("The article with the given ID was not found.");
+      }
+      res.json({ message: "Article deleted successfully" });
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  });
+
   return router;
 };
 

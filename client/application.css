@@ -164,11 +164,62 @@ article p {
 }
 
 footer {
-    grid-column: span 3; /* Because there are 3 columns */
+    grid-column: span 3; /*Because there are 3 columns*/
     text-align: center;
     border-top: 1px solid #ddd;
     height: 50px;
 }
+
+.add-article-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.add-article-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-article-form div {
+    margin-bottom: 15px;
+}
+
+.add-article-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-article-form input[type="text"],
+.add-article-form select,
+.add-article-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /*ensures padding doesn't increase the width*/
+}
+
+.add-article-form textarea {
+    height: 150px;
+}
+
+.add-article-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-article-form button:hover {
+    background-color: #0056b3;
+}
+
 
 /*Responsive styles*/
 
