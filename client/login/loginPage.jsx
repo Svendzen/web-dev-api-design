@@ -1,4 +1,4 @@
-import { GoogleButton } from "./GoogleButton";
+import { GoogleButton } from "./googleButton";
 
 export function LoginPage() {
   return (
