@@ -4,6 +4,9 @@ HEROKU LINK: https://news-article-app-195a9a90a730.herokuapp.com/
 
 "npm run dev" to start the app locally.
 
+Log in with either reader or editor on the login page.
+Editor user will have their options show up in nav and on their articles. 
+
 All code is written by me but some code is inspired by the references mentioned. 
 That code have been changed so it fits my needs and vision for application
 # Features:
