@@ -8,6 +8,7 @@ import { ProfilePage } from "../profile/profilePage";
 import { GoogleCallback } from "../login/googleCallback";
 import { NewsPage } from "../news/newsPage";
 import { AddArticle } from "../news/addArticle";
+import { EditArticle } from "../news/editArticle";
 
 export function ApplicationRoutes() {
   return (
@@ -16,6 +17,7 @@ export function ApplicationRoutes() {
       <Route path={"/"} element={<NewsPage />} />
       <Route path={"/article/:id"} element={<Article />} />
       <Route path={"/article/new"} element={<AddArticle />} />
+      <Route path={"/article/edit/:id"} element={<EditArticle />} />
       <Route path={"/joke"} element={<JokePage />} />
       <Route path={"/about"} element={<AboutPage />} />
       <Route path={"/contact"} element={<ContactPage />} />

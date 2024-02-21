@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { LoginContext } from "../context/loginContext"; // Used to sanitize the article content to prevent XSS attacks
 
@@ -19,6 +19,7 @@ function formatPublishedDate(isoDateString) {
 export function Article() {
   const [article, setArticle] = useState(null);
   const { user, userType } = useContext(LoginContext);
+  const navigate = useNavigate();
   let { id } = useParams(); // fetches id from the url params
 
   async function loadArticle() {
@@ -40,7 +41,7 @@ export function Article() {
 
   const handleEdit = (articleId) => {
     // Redirect to edit article page, passing the article ID
-    navigate(`/edit-article/${articleId}`);
+    navigate(`/article/edit/${articleId}`);
   };
 
   const handleDelete = async (articleId) => {

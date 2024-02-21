@@ -52,7 +52,7 @@ export function AddArticle() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="add-article-form">
+    <form onSubmit={handleSubmit} className="article-form">
       <h2>Add New Article</h2>
       <div>
         <label htmlFor="title">Title</label>
