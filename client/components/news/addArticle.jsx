@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { LoginContext } from "../context/loginContext";
-import { ARTICLE_CATEGORIES } from "../constants/categories"; // constant wirth article categories
+import { ARTICLE_CATEGORIES } from "../../constants/categories"; // constant wirth article categories
 
 export function AddArticle() {
   const { user } = useContext(LoginContext);

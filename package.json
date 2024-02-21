@@ -1,7 +1,9 @@
 {
   "devDependencies": {
+    "@testing-library/react": "^14.2.1",
     "concurrently": "^8.2.2",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "react-test-renderer": "^18.2.0"
   },
   "scripts": {
     "dev": "concurrently npm:dev:client npm:dev:server",

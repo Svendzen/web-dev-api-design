@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/loginContext";
-import { ARTICLE_CATEGORIES } from "../constants/categories"; // Assuming you've defined your categories here
+import { ARTICLE_CATEGORIES } from "../../constants/categories"; // Assuming you've defined your categories here
 
 export function EditArticle() {
   const [article, setArticle] = useState({
