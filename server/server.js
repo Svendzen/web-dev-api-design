@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import articlesRouter from "./api/articleApi.js";
 import { userInfoMiddleware } from "./middleware/userInfoMiddleware.js";
 import loginRouter from "./api/loginApi.js";
+import { WebSocketServer } from "ws";
 
 dotenv.config();
 const app = express();
@@ -21,10 +22,13 @@ app.use(express.static("../client/dist")); // better performance middleware
 const client = new MongoClient(process.env.MONGODB_URL);
 const db = client.db("news_db"); // the db being used
 
+// web socket server
+const webSocketServer = new WebSocketServer({ noServer: true });
+
 app.use(userInfoMiddleware(google_config));
 
 // ROUTERS
-app.use("/api", articlesRouter(db));
+app.use("/api", articlesRouter(db, webSocketServer));
 app.use("/api", loginRouter(db));
 
 // FALLBACK MIDDLEWARE for non API GET calls
@@ -50,3 +54,15 @@ await client
   .catch((error) => {
     console.log("Failed to connect to MongoDB. ", error);
   });
+
+webSocketServer.on("connection", (socket) => {
+  console.log("Client connected");
+
+  socket.on("message", (data) => {
+    console.log("Received message:", data);
+  });
+
+  socket.on("close", () => {
+    console.log("Client disconnected");
+  });
+});

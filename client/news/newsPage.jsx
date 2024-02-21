@@ -8,6 +8,25 @@ export function NewsPage() {
 
   useEffect(() => {
     loadArticles();
+
+    // connect to websocket server
+    const wsProtocol =
+      window.location.protocol === "https:" ? "wss://" : "ws://";
+    const webSocket = new WebSocket(wsProtocol + window.location.host);
+    webSocket.onopen = () => {
+      console.log("Connected to WebSocket server");
+    };
+
+    webSocket.onmessage = (event) => {
+      const newArticle = JSON.parse(event.data);
+      setArticles((prevArticles) => [newArticle, ...prevArticles]);
+    };
+
+    webSocket.onclose = () => {
+      console.log("Disconnected from WebSocket server");
+    };
+
+    return () => webSocket.close(); // close websocket connection
   }, []);
 
   async function loadArticles() {

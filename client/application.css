@@ -105,7 +105,7 @@ article p {
     color: #777;
 }
 
-/* The anonymous users see if they try to read an article*/
+/*The anonymous users see this if they try to read an article*/
 .access-denied-message {
     color: #d32f2f;
     background-color: #ffcdd2;

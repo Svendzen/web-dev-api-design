@@ -1,7 +1,7 @@
 import express from "express";
 import { ObjectId } from "mongodb";
 
-const articlesRouter = (db) => {
+const articlesRouter = (db, webSocketServer) => {
   const router = express.Router();
 
   // GET route for fetching article previews (title, image, and id)
@@ -23,6 +23,13 @@ const articlesRouter = (db) => {
     try {
       const collection = db.collection("articles");
       const article = await collection.insertOne(req.body);
+
+      webSocketServer.clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+          client.send(JSON.stringify(article));
+        }
+      });
+
       res.status(201).json(article);
     } catch (error) {
       res.status(500).send(error.message);

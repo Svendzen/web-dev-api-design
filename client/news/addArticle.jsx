@@ -28,7 +28,7 @@ export function AddArticle() {
     const articleToSubmit = {
       ...article,
       author: user?.name || "Anonymous", // Set author to user's name or default to 'Anonymous'
-      timePublished: new Date().toISOString(), // Set current time as ISO string
+      timePublished: new Date().toISOString(),
     };
 
     // API call to post the article
