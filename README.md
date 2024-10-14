@@ -1,51 +1,49 @@
-# pg6301-Web Developmnet & API Design - Exam
+# pg6301 - Web Development & API Design - Exam
 
-"npm run dev" to start the app locally.
+## Overview
 
-Log in with either reader or editor on the login page.
-Editor user will have their options show up in nav and on their articles. 
+As part of an exam for the "Web Development and API Design" course, I developed an online news application using React for the frontend, Express for the backend, and MongoDB for data storage. The app was deployed on Heroku (though it is no longer hosted). It featured three user roles: anonymous users (who could only view headlines), readers (signed-in users who could read full articles), and editors (users with the ability to add and edit news articles). The theme of the news site focused on content relevant to developers.
 
-All code is written by me but some code is inspired by the references mentioned. 
-That code have been changed so it fits my needs and vision for application
-# Features:
-* 3 types of users - anonymous, readers, editors
-* anonymous users are not signed in and can not read articles
-* reader users can read articles
-* editor users can publish, edit and delete their own articles
-* profile page for logged in users
-* user stays logged in (signed cookies)
-* news articles with title, text are required and picture is optional
-* Add article page for editors - with select, input & textarea
-* error handling
-* MongoDB & Heroku
-* CSS Grid - Holy Grail layout with horizontal nav menu
-* Navigate with nav bar
-# Known issues:
-Web sockets not working.
+To start the app locally, run:
 
-No tests.
+```bash
+npm run dev
+```
 
-The "Articles" element in the nav has no purpose. 
-It was supposed to have drop down menu, and you could display articles by category.
-Didn't have time for it, lower priority. Should not take long time to add since every thing else is ready.
+You can log in as either a reader or editor from the login page. Once logged in, editor-specific options will be available in the navigation bar and on their articles.
 
-Profile page is missing css styling.
+While all code was written by me, some parts were inspired by the references listed below. These sections have been adapted to fit my specific requirements and vision for the application.
 
-Error msg might pop up after successfully deleting an article - error message is lying, because the deletion worked.
+## Features
 
-Only 1 way to log in - Google
+- **User Roles:**
+    - Anonymous users can only view headlines.
+    - Readers can view full articles once signed in.
+    - Editors can create, edit, and delete their own articles.
+- **Profile Page:** Each logged-in user has a profile page.
+- **Persistent Login:** Users stay logged in using signed cookies.
+- **Article Management:** Articles have a title and content (required), with an optional image upload.
+- **Add Article Page:** Editors have access to an interface with input fields, text areas, and select options for creating articles.
+- **Error Handling:** Basic error handling for user interactions.
+- **Technologies Used:** MongoDB for data storage, deployed on Heroku (no longer live).
+- **Layout and Navigation:**
+    - CSS Grid implementing the Holy Grail layout.
+    - Horizontal navigation bar for easy access across the app.
 
-Users are not stored in db - lacking way to store their information other than what provided from Google.
-I could set userType in db, add stuff like bio, phone number etc. to profile.
+## Known Issues
 
-Editor users trying to edit/remove their article is only authenticated through name. Goes back to user in db thing. 
-Should be an unique ID of some sort, even email wouldve been better, but my article collection doesnt store that as of yet.
+- **Web Sockets:** Currently not working.
+- **Testing:** No tests were implemented.
+- **Article Navigation:** The "Articles" tab in the nav bar has no functionality. It was intended to display articles by category, but this feature was deprioritized.
+- **Profile Page Styling:** Missing CSS styling for the profile page.
+- **Error on Deletion:** After successfully deleting an article, an error message might still appear, although the deletion was successful.
+- **Google Authentication:** Google is the only available method for logging in.
+- **User Storage:** User data is not fully stored in the database (Google provides basic information). Further fields like bio, phone number, and user type could be added.
+- **Article Ownership:** Editors are authenticated by name when editing or deleting articles. A unique identifier (such as email or ID) should be used instead.
 
-# References:
-"pg6301-frontend-programming Github Repository" https://github.com/kristiania-pg6301-2023/pg6301-frontend-programming
+## References
 
-"Build Layouts with CSS Grid #3 - Holy Grail Layout" https://www.youtube.com/watch?v=cJvMbQq0MIQ
-
-"CSS Horizontal Navigation Bar" https://www.w3schools.com/css/css_navbar_horizontal.asp
-
-Royalty free stock photos used are from https://www.pexels.com/
+- [pg6301-frontend-programming Github Repository](https://github.com/kristiania-pg6301-2023/pg6301-frontend-programming)
+- ["Build Layouts with CSS Grid #3 - Holy Grail Layout" on YouTube](https://www.youtube.com/watch?v=cJvMbQq0MIQ)
+- ["CSS Horizontal Navigation Bar" by W3Schools](https://www.w3schools.com/css/css_navbar_horizontal.asp)
+- [Stock Photos from Pexels](https://www.pexels.com/)
