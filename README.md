@@ -1,8 +1,4 @@
-# pg6301-2024-konte-Svendzen
-
-HEROKU LINK: https://news-article-app-195a9a90a730.herokuapp.com/
-
-GITHUB REPOSITORY: https://github.com/kristiania-pg6301-2023/pg6301-2024-konte-Svendzen
+# pg6301-Web Developmnet & API Design - Exam
 
 "npm run dev" to start the app locally.
 
